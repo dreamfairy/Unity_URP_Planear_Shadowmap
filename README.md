@@ -6,10 +6,13 @@ Unity Editor : 2021.3.19
 Preview
 ![Image text](https://github.com/dreamfairy/Unity_URP_Planear_Shadowmap/blob/main/preview/1.gif)
 
+
 当光源和阴影接收者平面接近平行时有瑕疵
+
 ![Image text](https://github.com/dreamfairy/Unity_URP_Planear_Shadowmap/blob/main/preview/2.png)
 
 几乎100%ShadowMap面积利用率的阴影，可以在较小的分辨率下获得更高的清晰度
+
 ![Image text](https://github.com/dreamfairy/Unity_URP_Planear_Shadowmap/blob/main/preview/3.png)
 
 

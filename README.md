@@ -15,7 +15,9 @@ Preview
 
 ![Image text](https://github.com/dreamfairy/Unity_URP_Planear_Shadowmap/blob/main/preview/3.png)
 
+Dx/Ogl适配
 
+![Image text](https://github.com/dreamfairy/Unity_URP_Planear_Shadowmap/blob/main/preview/4.png)
 
 优点
 

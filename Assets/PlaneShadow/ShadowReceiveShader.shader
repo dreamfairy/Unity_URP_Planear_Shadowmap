@@ -106,13 +106,13 @@ Shader "Unlit/ShadowReceiveShader"
                 #if defined(SHADER_API_GLES) || defined(SHADER_API_GLES3)
                 half4 pcfShadow = 0;
                 pcfShadow.x = SAMPLE_TEXTURE2D_LOD(_PlaneShadowMap, depth_linear_clamp_sampler,
-                     shadowPos.xy, 0);
+                     shadowPos.xy + float2(1,0) * uvPixel, 0);
                 pcfShadow.y = SAMPLE_TEXTURE2D_LOD(_PlaneShadowMap, depth_linear_clamp_sampler,
-                     shadowPos.xy , 0);
+                     shadowPos.xy + float2(-1,0) * uvPixel , 0);
                 pcfShadow.z = SAMPLE_TEXTURE2D_LOD(_PlaneShadowMap, depth_linear_clamp_sampler,
-                     shadowPos.xy, 0);
+                     shadowPos.xy + float2(0,1) * uvPixel, 0);
                 pcfShadow.w = SAMPLE_TEXTURE2D_LOD(_PlaneShadowMap, depth_linear_clamp_sampler,
-                      shadowPos.xy, 0);
+                      shadowPos.xy + float2(0,-1) * uvPixel, 0);
 
                 pcfShadow =  1 - (pcfShadow * 2 - 1);
 
@@ -154,8 +154,8 @@ Shader "Unlit/ShadowReceiveShader"
                 half shadow = SampleDepthCmp(shadowPos, uvPixel, shadowMapSize);
 
                 //no pcf
-                // half shadowDepth = SampleDepth(shadowPos.xy);
-                // half shadow = 1 - (shadowPos.z <= shadowDepth);
+                //half shadowDepth = SampleDepth(shadowPos.xy);
+                //half shadow = 1 - (shadowPos.z <= shadowDepth);
 
                 return lerp(_BaseColor, _BaseColor * 0.5, 1 - shadow);
             }
